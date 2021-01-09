@@ -12,17 +12,19 @@ export class CarComponent implements OnInit {
   model: string;
   colors: Colors;
   options: string[];
+  isEdit: boolean;
 
   constructor() {
     this.name = 'BMW'
     this.speed = 240,
-    this.model = 'X5',
+    this.model = 'X5'
     this.colors = {
       car: 'Silver',
       interior: 'Black',
       wheels: 'White'
     }
-    this.options = ["ABS", "Автопилот", "Авто Паркинг"]
+    this.options = ["GPS", "круиз-контроль"],
+    this.isEdit = false
   }
 
   ngOnInit(): void {
@@ -34,6 +36,25 @@ export class CarComponent implements OnInit {
       interior: 'Black',
       wheels: 'Silver'
     }
+    this.options = ["ABS", "Автопилот", "Авто Паркинг"]
+  }
+
+  showEdit() {
+    this.isEdit = !this.isEdit
+  }
+
+  addOption = (option: string) => {
+    this.options.unshift(option)
+
+    return false
+  }
+
+  deleteOption = (option: string) => {
+    for (let i = 0; i < this.options.length; i++)
+      if (this.options[i] === option) {
+        this.options.splice(i, 1)
+        break
+      }
   }
 
   carSelect = (name: string) => {
