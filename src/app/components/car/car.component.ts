@@ -10,11 +10,8 @@ export class CarComponent implements OnInit {
   name: string;
   speed: number;
   model: string;
-  colors: {
-    car: string,
-    interior: string,
-    wheels: string
-  }
+  colors: Colors;
+  options: string[];
 
   constructor() {
     this.name = 'BMW'
@@ -25,12 +22,13 @@ export class CarComponent implements OnInit {
       interior: 'Black',
       wheels: 'White'
     }
+    this.options = ["ABS", "Автопилот", "Авто Паркинг"]
   }
 
   ngOnInit(): void {
     this.model = 'Audi'
     this.speed = 250,
-    this.model = 'RS6',
+    this.model = 'RS Q8',
     this.colors = {
       car: 'White',
       interior: 'Black',
@@ -38,4 +36,10 @@ export class CarComponent implements OnInit {
     }
   }
 
+}
+
+interface Colors {
+  car: string,
+  interior: string,
+  wheels: string
 }
