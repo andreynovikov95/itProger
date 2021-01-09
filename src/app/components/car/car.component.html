@@ -1,1 +1,30 @@
-<h4>{{model}}</h4>
+<div class="container">
+  <br />
+  <h4><mark>Автомобиль:</mark> {{name}}
+  <small>{{model}}</small></h4>
+  <div class="alert alert-success">
+    Характеристики автомобиля:
+    <ul>
+      <li>Скорость: <strong>{{speed}}</strong> км</li>
+      <li>Цвет автомобиля:
+        <strong>{{colors.car}}</strong>
+      </li>
+      <li>Цвет салона:
+        <strong>{{colors.interior}}</strong></li>
+      <li>Цвет колес:
+        <strong>{{colors.wheels}}</strong>
+      </li>
+    </ul>
+  </div>
+  <h5>Возможности автомобиля</h5>
+  <div class="alert alert-warning">
+    <ul>
+      <li *ngFor="let option of options;
+        let i = index
+      ">
+        {{i + 1}} - {{option}}
+      </li>
+    </ul>
+  </div>
+</div>
+
