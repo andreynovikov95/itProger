@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarComponent implements OnInit {
 
+  model:string = 'BMW'
+
   constructor() { }
 
   ngOnInit(): void {
+    this.model = 'Audi'
   }
 
 }
